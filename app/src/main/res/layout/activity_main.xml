@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_main_scene"
+    android:id="@+id/motionLayout"
+    tools:context=".MainActivity">
+
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="30sp"-->
+<!--        android:text="ifgasjkhfgjhksadgf"/>-->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250sp"
+        android:layout_height="250sp"
+        android:src="@drawable/logo"
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="241dp"
+        android:contentDescription="@string/todo" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
