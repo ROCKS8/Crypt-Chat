@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/white"
         >
 
         <LinearLayout
-            android:id="@+id/MainBarLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/blue_500"
@@ -31,56 +31,68 @@
                 android:layout_marginTop="5sp"
                 android:layout_marginLeft="5sp"
                 />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50sp"
-            >
-
-            <LinearLayout
+            
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:gravity="center"
-                >
+                />
 
-            <TableLayout
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="match_parent"
+                />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    >
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50sp"-->
+<!--            >-->
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="One to One"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="22sp"
-                        android:layout_marginEnd="15sp"
-                        />
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:gravity="center"-->
+<!--                >-->
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Group"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:textSize="22sp"
-                        android:layout_marginStart="15sp"
-                        />
+<!--            <TableLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                >-->
 
-                </TableRow>
+<!--                <TableRow-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:gravity="center"-->
+<!--                    >-->
 
-            </TableLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="One to One"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="22sp"-->
+<!--                        android:layout_marginEnd="15sp"-->
+<!--                        />-->
 
-            </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Group"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="22sp"-->
+<!--                        android:layout_marginStart="15sp"-->
+<!--                        />-->
 
-        </RelativeLayout>
+<!--                </TableRow>-->
+
+<!--            </TableLayout>-->
+
+<!--            </LinearLayout>-->
+
+<!--        </RelativeLayout>-->
 
         </LinearLayout>
 
