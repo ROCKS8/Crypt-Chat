@@ -5,7 +5,6 @@ import androidx.constraintlayout.motion.widget.MotionLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTransitionCompleted(MotionLayout motionLayout, int currentId) {
 
 //                Toast.makeText(MainActivity.this, "Helllo", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                Intent intent = new Intent(MainActivity.this, OtpAuthentication.class);
                 startActivity(intent);
 
             }
