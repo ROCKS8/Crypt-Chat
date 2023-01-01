@@ -3,6 +3,7 @@ package com.example.cryptchat;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -21,6 +22,7 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 
+import java.io.FileOutputStream;
 import java.util.concurrent.TimeUnit;
 
 public class OtpAuthentication extends AppCompatActivity {
@@ -29,6 +31,7 @@ public class OtpAuthentication extends AppCompatActivity {
     private String verificationId;
     EditText getPhoneNumber, getOneTimePassword;
     Button getOTPButton, verifyOTPButton;
+    AES245Encryption encryption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,19 @@ public class OtpAuthentication extends AppCompatActivity {
                     // displaying a toast message.
                     Toast.makeText(OtpAuthentication.this, "Please enter a valid phone number.", Toast.LENGTH_SHORT).show();
                 } else {
+
+                    try{
+                        encryption = new AES245Encryption();
+                        FileOutputStream fout=openFileOutput("user.txt", Context.MODE_PRIVATE);
+                        String s = encryption.encrypt(getOneTimePassword.getText().toString());
+                        byte b[]=s.getBytes();
+                        fout.write(b);
+                        fout.close();
+                    }catch(Exception e){
+                        System.out.println("********************************************");
+                        System.out.println(e);
+                        System.out.println("********************************************");
+                    }
 //                    getOTPButton.setEnabled(false);
                     // if the text field is not empty we are calling our
                     // send OTP method for getting OTP from Firebase.
@@ -89,6 +105,8 @@ public class OtpAuthentication extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
 //                            Toast.makeText(MainActivity.this, "Successful", Toast.LENGTH_SHORT).show();

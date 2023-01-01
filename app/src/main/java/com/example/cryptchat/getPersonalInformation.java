@@ -1,8 +1,11 @@
 package com.example.cryptchat;
 
+import static android.provider.Telephony.Mms.Part.FILENAME;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,12 +18,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class getPersonalInformation extends AppCompatActivity {
 
     EditText userName;
     Button next;
     FirebaseAuth auth;
-
     FirebaseDatabase database;
     DatabaseReference reference;
 
@@ -35,7 +41,6 @@ public class getPersonalInformation extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
-
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +50,7 @@ public class getPersonalInformation extends AppCompatActivity {
                 } else {
                     reference = database.getReference().child("user").child(auth.getUid());
                     Intent intent = getIntent();
-                    String number = "8799496043"; //intent.getStringExtra("number");
+                    String number = intent.getStringExtra("number");
                     String name = userName.getText().toString();
 //                    System.out.println("\n**********************\n");
 //                    System.out.println(auth.getUid());
@@ -58,6 +63,8 @@ public class getPersonalInformation extends AppCompatActivity {
 //                    System.out.println(users.getName());
 //                    System.out.println(users.getNumber());
 //                    System.out.println("\n**********************\n");
+
+
 
                     reference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
